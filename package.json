@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "npm run start:dev -w img-uploader-backend"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
     "url": "https://github.com/aserputko/img-uploader-workspace/issues"
   },
   "homepage": "https://github.com/aserputko/img-uploader-workspace#readme",
-  "workspaces": ["img-uploader-backend", "img-uploader-frontend"]
+  "workspaces": [
+    "img-uploader-backend",
+    "img-uploader-frontend"
+  ]
 }
