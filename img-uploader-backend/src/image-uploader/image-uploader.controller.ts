@@ -8,15 +8,16 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { ImageUseCases } from '../domain/image.usecases';
+import { Image } from './image-uploader.model';
+import { ImageUploaderUseCases } from './image-uploader.usecases';
 
 export class SampleDto {
   name: string;
 }
 
 @Controller('/image')
-export class ImageController {
-  constructor(private readonly imageUseCases: ImageUseCases) {}
+export class ImageUploaderController {
+  constructor(private readonly imageUploaderUseCases: ImageUploaderUseCases) {}
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
@@ -30,8 +31,7 @@ export class ImageController {
       }),
     )
     file: Express.Multer.File,
-  ) {
-    const url = await this.imageUseCases.uploadImage(file);
-    return { url };
+  ): Promise<Image> {
+    return await this.imageUploaderUseCases.uploadImage(file);
   }
 }

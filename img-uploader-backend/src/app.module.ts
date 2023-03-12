@@ -1,12 +1,12 @@
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
-import { ImageUseCases } from './domain/image.usecases';
-import { FileStorageService } from './infrastructure/file-storage.service';
-import { ImageController } from './presentation/image.controller';
+import { ImageUploaderController } from './image-uploader/image-uploader.controller';
+import { ImageUploaderGateway } from './image-uploader/image-uploader.gateway';
+import { ImageUploaderUseCases } from './image-uploader/image-uploader.usecases';
 
 @Module({
   imports: [HttpModule],
-  controllers: [ImageController],
-  providers: [ImageUseCases, FileStorageService],
+  controllers: [ImageUploaderController],
+  providers: [ImageUploaderUseCases, ImageUploaderGateway],
 })
 export class AppModule {}

@@ -7,7 +7,7 @@ const IMG_API_KEY = '17608775c0422cda8509713763add5d4';
 const IMG_API_ENDPOINT = 'https://api.imgbb.com/1/upload';
 
 @Injectable()
-export class FileStorageService {
+export class ImageUploaderGateway {
   constructor(private readonly httpService: HttpService) {}
 
   async uploadFile(file: Express.Multer.File): Promise<any> {
